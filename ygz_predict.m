@@ -1,4 +1,15 @@
 function [y_predict,performance,Imp] = ygz_predict(x,y,kfolds,Pre_Method,Method)
+% input: 
+%   x = independent variable n*m n = number of subject m = number of independent variable
+%   y = dependent varibale n*1
+%   Number of partitions for dividing the sample
+%                    (e.g., 2 =split half, 10 = ten fold)
+%   Pre_Method:  'Normalize', 'Scale', 'None'
+%   Method : 'tree'; 'liner'
+% output:
+%   y_predict    Predictions of outcome variable
+%   performance  Correlation and root-mean-squared-error (RMSE) between predicted and actual values of y
+%   Imp: predictorImportance of decisionn tree or β of liner model
 %% split data
 nsubs = size(x,1);
 randinds = randperm(nsubs);
